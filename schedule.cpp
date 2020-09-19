@@ -8,10 +8,15 @@
 #include <iostream>
 #include <stdio.h>
 #include "schedule.h"
-#include <string>
-#include <vector>
-void schedule(int numOfA, int numOfB, int numOfC, std::vector<std::string> workerNames)
-{
-    std::cout<<"called"<<std::endl; 
-    
+
+void schedule(std::vector<Worker>& workers, std::vector<Appointment>& appointments) {
+    for (int i = 0; i < appointments.size(); i++) {
+        for (int j = 0; j < workers.size(); j++) {
+            std::cout << workers[j].getName() << " | " << workers[j].getAvailableTime() << " | " << appointments[i].getTimeOfDayEnd() << std::endl;
+            if (workers[j].getAvailableTime() <= appointments[i].getTimeOfDayStart()) {
+                workers[j].addAppointment(appointments[i]);
+                break;
+            }
+        }
+    }
 }

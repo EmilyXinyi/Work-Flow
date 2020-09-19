@@ -8,4 +8,8 @@
 #pragma once
 #include <string>
 #include <vector>
-void schedule(int numOfA, int numOfB, int numOfC, std::vector<std::string> workerNames);
+#include "appointment.h"
+#include "worker.h"
+
+
+void schedule(std::vector<Worker>& workers, std::vector<Appointment>& appointments);

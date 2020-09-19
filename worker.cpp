@@ -16,7 +16,7 @@ boost::posix_time::time_duration Worker::getAvailableTime() {
     if (schedule.empty()) {
         return SHIFT_START;
     }
-    return schedule.back().getTimeOfDayEnd();
+    return schedule.back().getTimeOfDayEnd() + BREAK;
 }
 
 

@@ -6,6 +6,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include "appointment.h"
 #include "worker.h"
+#include "schedule.h"
 
 using namespace std;
 
@@ -34,15 +35,22 @@ int main() {
         );
     }
 
-    for (auto& worker : workers) {
-        std::cout << worker << std::endl;
-    }
-
-    for (auto& apt : appointments) {
-        std::cout << apt << std::endl;
-    }
+//    for (auto& worker : workers) {
+//        std::cout << worker << std::endl;
+//    }
+//
+//    for (auto& apt : appointments) {
+//        std::cout << apt << std::endl;
+//    }
 
     std::sort(appointments.begin(), appointments.end(), [](auto& a, auto& b) { return a.getTimeEnd() < b.getTimeEnd(); });
+
+    schedule(workers, appointments);
+
+    for (auto& worker : workers) {
+        std::cout << worker;
+        std::cout << worker.getWorkingMinutes() << std::endl << std::endl;
+    }
 
     return 0;
 }

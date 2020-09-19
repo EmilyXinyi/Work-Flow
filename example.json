@@ -28,8 +28,13 @@
     },
     {
       "type": "Flu",
-      "time": "2020-01-01 15:20",
+      "time": "2020-01-01 14:20",
       "patientName": "Eric"
+    },
+    {
+      "type": "General",
+      "time": "2020-01-01 14:20",
+      "patientName": "Josh"
     }
   ]
 }
