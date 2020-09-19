@@ -13,7 +13,7 @@ int main() {
     vector<Worker> workers;
     vector<Appointment> appointments;
 
-    ifstream jsonFile("../example.json");
+    ifstream jsonFile("example.json");
     boost::property_tree::ptree pt;
     boost::property_tree::read_json(jsonFile, pt);
 

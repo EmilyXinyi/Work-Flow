@@ -8,8 +8,10 @@
 #include <iostream>
 #include <stdio.h>
 #include "schedule.h"
-void schedule(int numOfA, int numOfB, int numOfC, std::string workerNames[])
+#include <string>
+#include <vector>
+void schedule(int numOfA, int numOfB, int numOfC, std::vector<std::string> workerNames)
 {
-    std::cout<<workerNames[0]<<std::endl; 
+    std::cout<<"called"<<std::endl; 
     
 }

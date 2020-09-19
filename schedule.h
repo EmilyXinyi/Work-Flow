@@ -7,4 +7,5 @@
 //
 #pragma once
 #include <string>
-void schedule(int numOfA, int numOfB, int numOfC, std::string workerNames[]);
+#include <vector>
+void schedule(int numOfA, int numOfB, int numOfC, std::vector<std::string> workerNames);
