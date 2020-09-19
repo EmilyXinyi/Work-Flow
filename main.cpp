@@ -50,6 +50,6 @@ int main() {
     }
     myfile.close();
     
-    schedule(numofA, numofB, numofC, &workerNames);
+    schedule(numofA, numofB, numofC, workerNames);
     return (0); 
 }
