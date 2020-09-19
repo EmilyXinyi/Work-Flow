@@ -1,0 +1,35 @@
+{
+  "workers": ["Bob", "Billy"],
+  "appointments": [
+    {
+      "type": "General",
+      "time": "2020-01-01 14:30",
+      "patientName": "Will"
+    },
+    {
+      "type": "General",
+      "time": "2020-01-01 10:15",
+      "patientName": "Sarah"
+    },
+    {
+      "type": "General",
+      "time": "2020-01-01 09:45",
+      "patientName": "Joe"
+    },
+    {
+      "type": "General",
+      "time": "2020-01-01 10:20",
+      "patientName": "Jill"
+    },
+    {
+      "type": "Flu",
+      "time": "2020-01-01 10:15",
+      "patientName": "Samantha"
+    },
+    {
+      "type": "Flu",
+      "time": "2020-01-01 15:20",
+      "patientName": "Eric"
+    }
+  ]
+}

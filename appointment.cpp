@@ -5,12 +5,21 @@ using boost::gregorian::from_simple_string;
 using boost::posix_time::time_from_string;
 using boost::posix_time::time_period;
 
+AppointmentTypes stringToType(std::string str) {
+    if (str == "General") {
+        return General;
+    } else if (str == "Flu") {
+        return Flu;
+    }
+    return General;
+}
+
 Appointment::Appointment(AppointmentTypes type, std::string timeString, std::string name) :
     type(type),
     patientName(name) {
     int t = 0;
-    if (type == Checkup) {
-        t = 15;
+    if (type == General) {
+        t = 20;
     } else if (type == Flu) {
         t = 30;
     }

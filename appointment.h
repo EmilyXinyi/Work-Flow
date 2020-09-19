@@ -6,14 +6,16 @@
 #include <boost/date_time/posix_time/posix_time.hpp>
 
 enum AppointmentTypes {
-    Checkup,
+    General,
     Flu
 };
 
 const std::string AppointmentTypesString[] = {
-        "Routine Checkup",
+        "General Appointment",
         "Flu Shot"
 };
+
+AppointmentTypes stringToType(std::string str);
 
 class Appointment {
 private:
