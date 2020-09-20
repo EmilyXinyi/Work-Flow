@@ -6,6 +6,12 @@
 //  Copyright © 2020年 HackRiceX2020. All rights reserved.
 //
 
-#pragma once
-void updateJson(Appointment newAppointment); 
+#ifndef UPDATE_H
+#define UPDATE_H
 
+#include <string>
+#include "appointment.h"
+
+void updateJson(Appointment newAppointment, std::string fileName);
+
+#endif // UPDATE_H

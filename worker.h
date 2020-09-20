@@ -9,8 +9,8 @@
 
 class Worker {
 protected:
-    const boost::posix_time::time_duration SHIFT_START = boost::posix_time::hours(6); // 6 AM
-    const boost::posix_time::time_duration SHIFT_END   = boost::posix_time::hours(18); // 6 PM
+    const boost::posix_time::time_duration SHIFT_START = boost::posix_time::hours(8); // 8 AM
+    const boost::posix_time::time_duration SHIFT_END   = boost::posix_time::hours(18) + boost::posix_time::minutes(30); // 5:30 PM
     const boost::posix_time::time_duration BREAK       = boost::posix_time::minutes(5); // 5 minutes between appointments
     std::string name;
     std::vector<Appointment> schedule;

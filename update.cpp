@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void updateJson(Appointment newAppointment)
+void updateJson(Appointment newAppointment, std::string fileName)
 {
     // Short alias for this namespace
     namespace pt = boost::property_tree;
@@ -22,7 +22,7 @@ void updateJson(Appointment newAppointment)
     vector<Appointment> appointments;
     
     // Load the json file in this ptree
-    pt::read_json("example.json", root);
+    pt::read_json(fileName, root);
     
     //read all appointments from json and put it into a vector
     const auto& jsonAppointments = root.get_child("appointments");

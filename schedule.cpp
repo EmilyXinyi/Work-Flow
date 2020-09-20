@@ -12,6 +12,8 @@
 #include "schedule.h"
 
 void schedule(std::vector<Worker*>& workers, std::vector<Appointment>& appointments) {
+    std::sort(appointments.begin(), appointments.end(), [](auto& a, auto& b) { return a.getTimeEnd() < b.getTimeEnd(); });
+
     std::make_heap(workers.begin(), workers.end());
 
     for (auto& appointment : appointments) {
