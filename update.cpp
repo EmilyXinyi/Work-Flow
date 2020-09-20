@@ -49,14 +49,17 @@ void updateJson(Appointment newAppointment, std::string fileName)
     {
         //temp node containing the value
         pt::ptree temp_node;
-        temp_node.put("",appt);
+        temp_node.put("type",AppointmentTypesString[appt.getType()]);
+        temp_node.put("patientName", appt.getPatientName());
+        temp_node.put("time", appt.getTimeStart());
         
         //adding the node to the list
         app_node.push_back(std::make_pair("", temp_node));
     }
+    root.erase("appointments");
     root.add_child("appointments", app_node);
     
     cout<<"Update success"<<endl;
     
-
+    pt::write_json(fileName, root);
 }

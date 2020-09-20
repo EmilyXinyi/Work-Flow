@@ -21,7 +21,7 @@ private:
 
     std::vector<Worker*> workers;
     std::vector<Appointment> appointments;
-    std::string fileName;
+    std::string filename;
 private slots:
     void on_demoButton_clicked();
 

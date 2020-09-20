@@ -16,6 +16,7 @@
 #include "schedule.h"
 #include "schedule_table.h"
 #include "update.h"
+#include "update_form.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -35,9 +36,9 @@ void MainWindow::on_demoButton_clicked() {
         workers.clear();
         appointments.clear();
 
-        fileName = file_name.toStdString();
+        filename = file_name.toStdString();
 
-        std::ifstream jsonFile(fileName);
+        std::ifstream jsonFile(filename);
         boost::property_tree::ptree pt;
         boost::property_tree::read_json(jsonFile, pt);
 
@@ -91,5 +92,10 @@ void MainWindow::on_timetableButton_clicked()
 
 void MainWindow::on_newAppointmentButton_clicked()
 {
-
+    if (filename.size() > 0) {
+        UpdateForm* form = new UpdateForm(this);
+        form->setFilename(filename);
+        form->setModal(true);
+        form->exec();
+    }
 }

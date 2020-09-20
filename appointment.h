@@ -35,6 +35,7 @@ public:
     boost::posix_time::time_duration getTimeOfDayStart();
     boost::posix_time::time_duration getTimeOfDayEnd();
     boost::posix_time::time_duration getLength() const;
+    std::string getPatientName();
     friend std::ostream& operator<<(std::ostream& os, const Appointment& appointment);
 };
 

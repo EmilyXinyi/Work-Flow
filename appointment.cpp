@@ -66,6 +66,10 @@ boost::posix_time::time_duration Appointment::getLength() const {
     return this->period.length();
 }
 
+std::string Appointment::getPatientName() {
+    return this->patientName;
+}
+
 std::ostream& operator<<(std::ostream& os, const Appointment& appointment) {
     os << appointment.period.begin() << "-" << appointment.period.end().time_of_day() << std::endl;
     os << "\tAppointment Type: " << AppointmentTypesString[appointment.type] << std::endl;

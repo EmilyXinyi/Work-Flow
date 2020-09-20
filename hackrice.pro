@@ -10,6 +10,8 @@ SOURCES += \
     mainwindow.cpp \
     appointment.cpp \
     schedule_table.cpp \
+    schedule_tabs.cpp \
+    update_form.cpp \
     worker.cpp \
     schedule.cpp \
     doctor.cpp \
@@ -18,12 +20,16 @@ SOURCES += \
 
 FORMS += \
     mainwindow.ui \
-    schedule_table.ui
+    schedule_table.ui \
+    schedule_tabs.ui \
+    update_form.ui
 
 HEADERS += \
     mainwindow.h \
     appointment.h \
     schedule_table.h \
+    schedule_tabs.h \
+    update_form.h \
     worker.h \
     schedule.h \
     doctor.h \
