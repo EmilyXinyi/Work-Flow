@@ -26,16 +26,16 @@ private:
     std::string patientName;
 public:
     Appointment(AppointmentTypes type, std::string time, std::string name);
-    AppointmentTypes getType();
-    std::string getTypeString();
-    boost::posix_time::ptime getTimeStart();
-    boost::posix_time::ptime getTimeEnd();
-    boost::gregorian::date getDateBegin();
-    boost::gregorian::date getDateEnd();
-    boost::posix_time::time_duration getTimeOfDayStart();
-    boost::posix_time::time_duration getTimeOfDayEnd();
+    AppointmentTypes getType() const;
+    std::string getTypeString() const;
+    boost::posix_time::ptime getTimeStart() const;
+    boost::posix_time::ptime getTimeEnd() const;
+    boost::gregorian::date getDateBegin() const;
+    boost::gregorian::date getDateEnd() const;
+    boost::posix_time::time_duration getTimeOfDayStart() const;
+    boost::posix_time::time_duration getTimeOfDayEnd() const;
     boost::posix_time::time_duration getLength() const;
-    std::string getPatientName();
+    std::string getPatientName() const;
     friend std::ostream& operator<<(std::ostream& os, const Appointment& appointment);
 };
 

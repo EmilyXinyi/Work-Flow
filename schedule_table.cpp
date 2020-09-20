@@ -23,15 +23,10 @@ void ScheduleTable::setData(const std::vector<Worker*>& workers) {
 
     bool shades[rows][workers.size()];
 
-    std::cout << workers.size() << std::endl;
-
     for (int i = 0; i < rows; i++) {
-//        std::vector<bool> temp;
         for (int j = 0; j < workers.size(); j++) {
-//            temp.push_back(false);
             shades[i][j] = false;
         }
-//        shades.push_back(temp);
     }
 
     for (int i = 0; i < workers.size(); i++) {
@@ -47,8 +42,6 @@ void ScheduleTable::setData(const std::vector<Worker*>& workers) {
             int startIdx = floorf(startSec / (mins_f * 60));
             int endIdx   = ceilf(endSec / (mins_f * 60));
 
-            std::cout << startIdx << "," << endIdx << std::endl;
-
             for (int j = startIdx; j < endIdx; j++) {
                 shades[j][i] = true;
             }
@@ -63,7 +56,6 @@ void ScheduleTable::setData(const std::vector<Worker*>& workers) {
 
             if (shades[i][j]) {
                 qtwi->setBackground(QColor(34, 49, 63));
-                std::cout << i << "," << j << std::endl;
             }
 
             tableWidget->setItem(i, j, qtwi);

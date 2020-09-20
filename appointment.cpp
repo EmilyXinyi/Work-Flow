@@ -30,35 +30,35 @@ Appointment::Appointment(AppointmentTypes type, std::string timeString, std::str
     this->period = time_period(time_from_string(timeString), boost::posix_time::minutes(t));
 }
 
-AppointmentTypes Appointment::getType() {
+AppointmentTypes Appointment::getType() const {
     return this->type;
 }
 
-std::string Appointment::getTypeString() {
+std::string Appointment::getTypeString() const {
     return AppointmentTypesString[this->type];
 }
 
-boost::posix_time::ptime Appointment::getTimeStart() {
+boost::posix_time::ptime Appointment::getTimeStart() const {
     return this->period.begin();
 }
 
-boost::posix_time::ptime Appointment::getTimeEnd() {
+boost::posix_time::ptime Appointment::getTimeEnd() const {
     return this->period.end();
 }
 
-boost::gregorian::date Appointment::getDateBegin() {
+boost::gregorian::date Appointment::getDateBegin() const {
     return this->period.begin().date();
 }
 
-boost::gregorian::date Appointment::getDateEnd() {
+boost::gregorian::date Appointment::getDateEnd() const {
     return this->period.end().date();
 }
 
-boost::posix_time::time_duration Appointment::getTimeOfDayStart() {
+boost::posix_time::time_duration Appointment::getTimeOfDayStart() const {
     return this->period.begin().time_of_day();
 }
 
-boost::posix_time::time_duration Appointment::getTimeOfDayEnd() {
+boost::posix_time::time_duration Appointment::getTimeOfDayEnd() const {
     return this->period.end().time_of_day();
 }
 
@@ -66,7 +66,7 @@ boost::posix_time::time_duration Appointment::getLength() const {
     return this->period.length();
 }
 
-std::string Appointment::getPatientName() {
+std::string Appointment::getPatientName() const {
     return this->patientName;
 }
 

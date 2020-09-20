@@ -14,17 +14,19 @@
 void schedule(std::vector<Worker*>& workers, std::vector<Appointment>& appointments) {
     std::sort(appointments.begin(), appointments.end(), [](auto& a, auto& b) { return a.getTimeEnd() < b.getTimeEnd(); });
 
-    std::make_heap(workers.begin(), workers.end());
-
     for (auto& appointment : appointments) {
         for (auto& worker : workers) {
-            std::cout << worker->getName() << "\t | " << worker->getAvailableTime() << "\t | " << appointment.getTimeOfDayEnd() << std::endl;
+//            std::cout << worker->getName() << "\t | " << worker->getWorkingMinutes() << "\t | " << worker->getAvailableTime() << "\t | " << appointment.getTimeOfDayEnd() << std::endl;
 
             if (worker->isCorrectAppointment(appointment.getType()) && worker->getAvailableTime() <= appointment.getTimeOfDayStart()) {
                 worker->addAppointment(appointment);
-                sort_heap(workers.begin(), workers.end());
                 break;
             }
         }
+        std::sort(workers.begin(), workers.end(), [](auto& a, auto& b) { return *a < *b; });
+//        for (auto& worker: workers) {
+//            std::cout << worker->getName();
+//        }
+//        std::cout << std::endl;
     }
 }

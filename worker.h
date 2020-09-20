@@ -18,8 +18,8 @@ public:
     explicit Worker(std::string name);
     std::string getName() const;
     std::vector<Appointment> getSchedule() const;
-    boost::posix_time::time_duration getShiftStart();
-    boost::posix_time::time_duration getAvailableTime();
+    boost::posix_time::time_duration getShiftStart() const;
+    boost::posix_time::time_duration getAvailableTime() const;
     int getWorkingMinutes() const;
     void addAppointment(Appointment appointment);
     virtual bool isCorrectAppointment(AppointmentTypes type) = 0;
