@@ -67,7 +67,7 @@ void MainWindow::on_demoButton_clicked() {
         }
 
         schedule(workers, appointments);
-        std::sort(workers.begin(), workers.end(), [](auto& a, auto& b) { return a->getName() < b->getName(); });
+        std::cout << "done" << std::endl;
     }
 }
 
@@ -79,16 +79,10 @@ void MainWindow::on_closeButton_clicked()
 void MainWindow::on_timetableButton_clicked()
 {
     if (appointments.size() !=0 && workers.size() != 0) {
-        QDialog* scheduleDialog = new QDialog(this);
-        QHBoxLayout* layout = new QHBoxLayout();
-        ScheduleTable* table = new ScheduleTable(scheduleDialog);
+        ScheduleTable* table = new ScheduleTable(this);
         table->setData(workers);
-        scheduleDialog->setLayout(layout);
-        scheduleDialog->setMinimumSize(700, 500);
-        layout->setStretch(1, 1);
-        layout->addWidget(table);
-        scheduleDialog->setModal(true);
-        scheduleDialog->exec();
+        table->setModal(true);
+        table->exec();
     }
 }
 
