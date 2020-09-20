@@ -3,11 +3,11 @@
 Worker::Worker(std::string name) : name(name) {
 }
 
-std::string Worker::getName() {
+std::string Worker::getName() const {
     return name;
 }
 
-std::vector<Appointment> Worker::getSchedule() {
+std::vector<Appointment> Worker::getSchedule() const {
     return schedule;
 }
 

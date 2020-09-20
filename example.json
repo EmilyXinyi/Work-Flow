@@ -51,6 +51,21 @@
       "type": "Bloodwork",
       "time": "2020-01-01 13:45",
       "patientName": "Isabelle"
+    },
+    {
+      "type": "Flu",
+      "time": "2020-01-01 16:15",
+      "patientName": "Joseph"
+    },
+    {
+      "type": "General",
+      "time": "2020-01-01 11:00",
+      "patientName": "Kevin"
+    },
+    {
+      "type": "Flu",
+      "time": "2020-01-01 14:30",
+      "patientName": "Irene"
     }
   ]
 }

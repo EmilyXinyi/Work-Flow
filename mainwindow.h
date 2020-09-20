@@ -31,6 +31,8 @@ private slots:
 
     void on_newAppointmentButton_clicked();
 
+    void on_scheduleButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

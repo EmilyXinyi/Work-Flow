@@ -36,5 +36,8 @@ HEADERS += \
     nurse.h \
     update.h
 
-RESOURCES += \
+OTHER_FILES += \
     HRX_LOGO.png
+
+RESOURCES += \
+    resources.qrc

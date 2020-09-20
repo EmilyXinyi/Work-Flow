@@ -242,7 +242,7 @@ border-radius: 5px;</string>
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>HRX_LOGO.png</pixmap>
+          <pixmap resource="resources.qrc">:/HRX_LOGO.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -286,6 +286,8 @@ border-radius: 5px;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

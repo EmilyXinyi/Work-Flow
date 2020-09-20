@@ -17,6 +17,7 @@
 #include "schedule_table.h"
 #include "update.h"
 #include "update_form.h"
+#include "schedule_tabs.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -66,6 +67,7 @@ void MainWindow::on_demoButton_clicked() {
         }
 
         schedule(workers, appointments);
+        std::sort(workers.begin(), workers.end(), [](auto& a, auto& b) { return a->getName() < b->getName(); });
     }
 }
 
@@ -97,5 +99,15 @@ void MainWindow::on_newAppointmentButton_clicked()
         form->setFilename(filename);
         form->setModal(true);
         form->exec();
+    }
+}
+
+void MainWindow::on_scheduleButton_clicked()
+{
+    if (appointments.size() !=0 && workers.size() != 0) {
+        ScheduleTabs* tabs = new ScheduleTabs(this);
+        tabs->setData(workers);
+        tabs->setModal(true);
+        tabs->exec();
     }
 }

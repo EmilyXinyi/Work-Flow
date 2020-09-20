@@ -16,8 +16,8 @@ protected:
     std::vector<Appointment> schedule;
 public:
     explicit Worker(std::string name);
-    std::string getName();
-    std::vector<Appointment> getSchedule();
+    std::string getName() const;
+    std::vector<Appointment> getSchedule() const;
     boost::posix_time::time_duration getShiftStart();
     boost::posix_time::time_duration getAvailableTime();
     int getWorkingMinutes() const;
