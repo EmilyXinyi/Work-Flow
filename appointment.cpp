@@ -10,6 +10,8 @@ AppointmentTypes stringToType(std::string str) {
         return General;
     } else if (str == "Flu") {
         return Flu;
+    } else if (str == "Bloodwork") {
+        return Bloodwork;
     }
     return General;
 }
@@ -22,6 +24,8 @@ Appointment::Appointment(AppointmentTypes type, std::string timeString, std::str
         t = 20;
     } else if (type == Flu) {
         t = 30;
+    } else if (type == Bloodwork) {
+        t = 10;
     }
     this->period = time_period(time_from_string(timeString), boost::posix_time::minutes(t));
 }
@@ -58,7 +62,7 @@ boost::posix_time::time_duration Appointment::getTimeOfDayEnd() {
     return this->period.end().time_of_day();
 }
 
-boost::posix_time::time_duration Appointment::getLength() {
+boost::posix_time::time_duration Appointment::getLength() const {
     return this->period.length();
 }
 

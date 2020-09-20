@@ -7,12 +7,14 @@
 
 enum AppointmentTypes {
     General,
-    Flu
+    Flu,
+    Bloodwork
 };
 
 const std::string AppointmentTypesString[] = {
         "General Appointment",
-        "Flu Shot"
+        "Flu Shot",
+        "Blood Work"
 };
 
 AppointmentTypes stringToType(std::string str);
@@ -32,7 +34,7 @@ public:
     boost::gregorian::date getDateEnd();
     boost::posix_time::time_duration getTimeOfDayStart();
     boost::posix_time::time_duration getTimeOfDayEnd();
-    boost::posix_time::time_duration getLength();
+    boost::posix_time::time_duration getLength() const;
     friend std::ostream& operator<<(std::ostream& os, const Appointment& appointment);
 };
 

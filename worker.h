@@ -8,7 +8,7 @@
 #include "appointment.h"
 
 class Worker {
-private:
+protected:
     const boost::posix_time::time_duration SHIFT_START = boost::posix_time::hours(6); // 6 AM
     const boost::posix_time::time_duration SHIFT_END   = boost::posix_time::hours(18); // 6 PM
     const boost::posix_time::time_duration BREAK       = boost::posix_time::minutes(5); // 5 minutes between appointments
@@ -18,9 +18,12 @@ public:
     explicit Worker(std::string name);
     std::string getName();
     std::vector<Appointment> getSchedule();
+    boost::posix_time::time_duration getShiftStart();
     boost::posix_time::time_duration getAvailableTime();
-    int getWorkingMinutes();
+    int getWorkingMinutes() const;
     void addAppointment(Appointment appointment);
+    virtual bool isCorrectAppointment(AppointmentTypes type) = 0;
+    bool operator<(const Worker& rhs);
     friend std::ostream& operator<<(std::ostream& os, const Worker& worker);
 };
 

@@ -7,14 +7,20 @@
 //
 #include <iostream>
 #include <stdio.h>
+#include <algorithm>
+#include <queue>
 #include "schedule.h"
 
-void schedule(std::vector<Worker>& workers, std::vector<Appointment>& appointments) {
-    for (int i = 0; i < appointments.size(); i++) {
-        for (int j = 0; j < workers.size(); j++) {
-            std::cout << workers[j].getName() << " | " << workers[j].getAvailableTime() << " | " << appointments[i].getTimeOfDayEnd() << std::endl;
-            if (workers[j].getAvailableTime() <= appointments[i].getTimeOfDayStart()) {
-                workers[j].addAppointment(appointments[i]);
+void schedule(std::vector<Worker*>& workers, std::vector<Appointment>& appointments) {
+    std::make_heap(workers.begin(), workers.end());
+
+    for (auto& appointment : appointments) {
+        for (auto& worker : workers) {
+            std::cout << worker->getName() << "\t | " << worker->getAvailableTime() << "\t | " << appointment.getTimeOfDayEnd() << std::endl;
+
+            if (worker->isCorrectAppointment(appointment.getType()) && worker->getAvailableTime() <= appointment.getTimeOfDayStart()) {
+                worker->addAppointment(appointment);
+                sort_heap(workers.begin(), workers.end());
                 break;
             }
         }

@@ -12,4 +12,4 @@
 #include "worker.h"
 
 
-void schedule(std::vector<Worker>& workers, std::vector<Appointment>& appointments);
+void schedule(std::vector<Worker*>& workers, std::vector<Appointment>& appointments);

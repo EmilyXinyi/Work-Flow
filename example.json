@@ -1,5 +1,11 @@
 {
-  "workers": ["Bob", "Billy"],
+  "workers": [
+    { "name": "Bob", "role": "Doctor" },
+    { "name": "Billy", "role": "Nurse" },
+    { "name": "Rachel", "role": "Doctor" },
+    { "name": "David", "role": "Nurse" },
+    { "name": "Daisy", "role": "Nurse" }
+  ],
   "appointments": [
     {
       "type": "General",
@@ -12,7 +18,7 @@
       "patientName": "Sarah"
     },
     {
-      "type": "General",
+      "type": "Bloodwork",
       "time": "2020-01-01 09:45",
       "patientName": "Joe"
     },
@@ -35,6 +41,16 @@
       "type": "General",
       "time": "2020-01-01 14:20",
       "patientName": "Josh"
+    },
+    {
+      "type": "Flu",
+      "time": "2020-01-01 16:30",
+      "patientName": "Paul"
+    },
+    {
+      "type": "Bloodwork",
+      "time": "2020-01-01 13:45",
+      "patientName": "Isabelle"
     }
   ]
 }

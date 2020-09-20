@@ -6,12 +6,14 @@
 #include <boost/property_tree/json_parser.hpp>
 #include "appointment.h"
 #include "worker.h"
+#include "doctor.h"
+#include "nurse.h"
 #include "schedule.h"
 
 using namespace std;
 
 int main() {
-    vector<Worker> workers;
+    vector<Worker*> workers;
     vector<Appointment> appointments;
 
     ifstream jsonFile("example.json");
@@ -22,7 +24,13 @@ int main() {
     const auto& jsonAppointments = pt.get_child("appointments");
 
     for (const auto& worker : jsonWorkers) {
-        workers.emplace_back(Worker(worker.second.get_value<std::string>() ));
+        auto& child = worker.second;
+        std::string role = child.get<std::string>("role");
+        if (role == "Nurse") {
+            workers.push_back(new Nurse(child.get<std::string>("name") ));
+        } else if (role == "Doctor") {
+            workers.push_back(new Doctor(child.get<std::string>("name") ));
+        }
     }
 
     for (const auto& appointment : jsonAppointments) {
@@ -48,8 +56,8 @@ int main() {
     schedule(workers, appointments);
 
     for (auto& worker : workers) {
-        std::cout << worker;
-        std::cout << worker.getWorkingMinutes() << std::endl << std::endl;
+        std::cout << *worker;
+        std::cout << worker->getWorkingMinutes() << " minutes" << std::endl << std::endl;
     }
 
     return 0;

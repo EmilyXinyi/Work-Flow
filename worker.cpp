@@ -11,6 +11,9 @@ std::vector<Appointment> Worker::getSchedule() {
     return schedule;
 }
 
+boost::posix_time::time_duration Worker::getShiftStart() {
+    return SHIFT_START;
+}
 
 boost::posix_time::time_duration Worker::getAvailableTime() {
     if (schedule.empty()) {
@@ -24,7 +27,7 @@ void Worker::addAppointment(Appointment appointment) {
     schedule.push_back(appointment);
 }
 
-int Worker::getWorkingMinutes() {
+int Worker::getWorkingMinutes() const {
     int mins = 0;
     for (auto& appointment : schedule) {
         mins += appointment.getLength().minutes();
@@ -39,3 +42,8 @@ std::ostream& operator<<(std::ostream& os, const Worker& worker) {
     }
     return os;
 }
+
+bool Worker::operator<(const Worker& rhs) {
+    return this->getWorkingMinutes() < rhs.getWorkingMinutes();
+}
+
